@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>H-Retail-network — prototyp</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Montserrat:wght@400;600;700;800&family=Poppins:wght@400;600;700;800&family=Raleway:wght@400;600;700;800&family=Lato:wght@400;700;900&family=Open+Sans:wght@400;600;700;800&family=Albert+Sans:wght@400;600;700;800&family=Noto+Sans:wght@400;600;700;800&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <div class="stagebar">
+    <span class="pill">H-Retail-network · prototyp</span>
+    <label class="pill">Podgląd marki:
+      <select id="brandpick" onchange="location.search='?id='+this.value"></select>
+    </label>
+  </div>
+  <div class="device"><div class="screen" id="app"></div></div>
+
+  <script src="assets/brands.js"></script>
+  <script>
+    // brand switcher (demo convenience only)
+    (function(){
+      var sel=document.getElementById('brandpick');
+      var cur=(new URLSearchParams(location.search).get('id')||'_generic').toLowerCase();
+      Object.keys(window.BRANDS).forEach(function(k){
+        var o=document.createElement('option');o.value=k;
+        o.textContent=k==='_generic'?'— Generic —':window.BRANDS[k].name;
+        if(k===cur)o.selected=true; sel.appendChild(o);
+      });
+    })();
+  </script>
+  <script src="assets/app.js"></script>
+</body>
+</html>
