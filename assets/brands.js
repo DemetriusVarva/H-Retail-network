@@ -148,7 +148,7 @@ window.BRANDS = {
   },
   wittchen: {
     name: "WITTCHEN", domain: "wittchen.com", loyalty: "Wittchen Club",
-    primary: "#121212", accent: "#B49759", dark: "#121212", neutral: "#E5EBEE", ctaText: "#B49759",
+    primary: "#121212", accent: "#B49759", dark: "#121212", neutral: "#E5EBEE", ctaText: "#121212",
     font: "Noto Sans",
     hero: "Klasyka w nowoczesnym wydaniu",
     message: "350 000+ opinii, gwarancja i klub — i lepszy serwis salonowy.",
