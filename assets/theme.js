@@ -13,6 +13,12 @@
   r.setProperty('--dark',B.dark); r.setProperty('--neutral',B.neutral);
   r.setProperty('--cta-text',B.ctaText); r.setProperty('--font','"'+B.font+'"');
   r.setProperty('--on-primary',on(B.primary)); r.setProperty('--on-accent',on(B.accent));
+  r.setProperty('--mark','"'+B.name.trim().charAt(0).toUpperCase()+'"');
+  var PERSONA={ochnik:'luxe',duka:'warm',lancerto:'luxe',giacomo:'luxe',solar:'luxe',
+    diverse:'street',venezia:'luxe',kazar:'luxe',wojas:'luxe',monnari:'luxe',rylko:'luxe',
+    kubota:'playful',homeyou:'warm',wittchen:'luxe',homla:'warm',_generic:'clean'};
+  var pkey=window.BRANDS[id]?id:'_generic';
+  document.documentElement.setAttribute('data-persona',PERSONA[pkey]||'clean');
   document.title=B.name+" — aplikacja";
 
   var I={
