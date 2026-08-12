@@ -1,0 +1,38 @@
+/* Krok 7 — award-grade polish. Loaded after styles3.css. Additive only.
+   Grounded in Red Dot / award app patterns (Milkinside, bento 2025):
+   platform fidelity (real iOS status bar + Dynamic Island), layered depth,
+   bento clarity, and strict text containment. */
+
+/* ---------- Dynamic Island + authentic status bar ---------- */
+.dyn{position:absolute;top:9px;left:50%;transform:translateX(-50%);width:106px;height:30px;
+  background:#000;border-radius:16px;z-index:45}
+.status{height:48px;align-items:center;padding:2px 20px 0}
+.status .t{font-weight:700;font-size:14px;letter-spacing:.2px;font-variant-numeric:tabular-nums}
+.status .si{display:flex;align-items:center;gap:6px}
+.status .si svg{display:block;height:12px;width:auto;fill:currentColor;color:var(--on-primary)}
+.status .si .bat{height:13px}
+
+/* ---------- layered depth (soft, multi-shadow) ---------- */
+.card{box-shadow:0 1px 2px rgba(18,18,40,.05),0 10px 26px -12px rgba(18,18,40,.14)}
+.qa{box-shadow:0 1px 2px rgba(18,18,40,.04),0 6px 16px -10px rgba(18,18,40,.12)}
+.pcard{box-shadow:0 1px 2px rgba(18,18,40,.04),0 8px 20px -12px rgba(18,18,40,.12)}
+.order,.phead,.toggle{box-shadow:0 1px 2px rgba(18,18,40,.04),0 8px 20px -12px rgba(18,18,40,.12)}
+.issue{box-shadow:0 6px 18px -12px rgba(18,18,40,.16)}
+
+/* ---------- strict text containment: nothing leaves the frame ---------- */
+.screen{overflow:hidden}
+.body{overflow-x:hidden}
+.hero h1,.hero p,.subhead h2,.issue h4,.issue .desc,.sect h3,.appbar .brandmark,
+.pcard .nm,.prod .nm,.bub,.benefit b,.benefit small,.tl b,.tl small,.prow{
+  overflow-wrap:anywhere;word-break:break-word;hyphens:auto}
+.subhead h2{min-width:0}
+
+/* ---------- horizontal rails: clean intentional edge fade ---------- */
+.rail,.chips{-webkit-mask-image:linear-gradient(90deg,#000 89%,transparent 99%);
+  mask-image:linear-gradient(90deg,#000 89%,transparent 99%)}
+.rail{padding-right:8px}
+
+/* ---------- bento clarity: crisper section spacing & hero depth ---------- */
+.hero{box-shadow:0 12px 30px -16px color-mix(in srgb,var(--primary) 80%,#000)}
+.wrap{padding-top:24px}
+.qa .b{box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--primary) 8%,transparent)}
