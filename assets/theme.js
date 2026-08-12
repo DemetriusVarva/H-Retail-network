@@ -41,9 +41,13 @@
     return '<div class="tabs">'+t('home',I.home,'Start')+t('shop',I.bag,'Sklep')+
       t('club',I.star,'Klub')+t('orders',I.ord,'Zamówienia')+t('profile',I.user,'Profil')+'</div>';
   }
+  var SB_BARS='<svg viewBox="0 0 18 12"><rect x="0" y="7" width="3" height="5" rx="1"/><rect x="5" y="4.5" width="3" height="7.5" rx="1"/><rect x="10" y="2" width="3" height="10" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1" opacity=".35"/></svg>';
+  var SB_WIFI='<svg viewBox="0 0 16 12"><path d="M8 2.2C5 2.2 2.3 3.4.4 5.4l1.4 1.4C3.4 5.1 5.6 4.2 8 4.2s4.6.9 6.2 2.6l1.4-1.4C13.7 3.4 11 2.2 8 2.2z"/><path d="M8 6c-1.6 0-3.1.7-4.2 1.8l1.5 1.5C6 8.6 6.9 8.1 8 8.1s2 .5 2.7 1.2l1.5-1.5C11.1 6.7 9.6 6 8 6z"/><circle cx="8" cy="10.7" r="1.1"/></svg>';
+  var SB_BAT='<svg class="bat" viewBox="0 0 28 13"><rect x="1" y="1.2" width="22" height="10.6" rx="3" fill="none" stroke="currentColor" stroke-width="1" opacity=".45"/><rect x="2.6" y="2.7" width="18.8" height="7.6" rx="1.6"/><rect x="24.2" y="4.4" width="2" height="4.2" rx="1" opacity=".45"/></svg>';
   function shell(inner){
-    return '<div class="notch"></div>'+
-      '<div class="status"><span>9:41</span><span class="r">5G ▉▉▉ 100%</span></div>'+
+    return '<div class="dyn"></div>'+
+      '<div class="status"><span class="t">9:41</span>'+
+      '<span class="si">'+SB_BARS+SB_WIFI+SB_BAT+'</span></div>'+
       inner+tabbar(CTX.current);
   }
   function subhead(title){
