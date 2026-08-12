@@ -1,0 +1,91 @@
+/* Krok 6 — premium motion & per-brand persona treatments.
+   Loaded after styles2.css. Additive only: no existing rule is removed. */
+
+/* ---------- entrance / screen transition ---------- */
+@keyframes riseIn{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:none}}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+
+.appbar,.subhead{animation:fadeDown .45s cubic-bezier(.22,.61,.36,1) both}
+.hero{animation:riseIn .5s cubic-bezier(.22,.61,.36,1) both}
+.wrap>*{animation:riseIn .52s cubic-bezier(.22,.61,.36,1) both;animation-delay:calc(var(--i,0)*55ms)}
+
+/* ---------- premium loyalty card ---------- */
+.loyal{box-shadow:0 16px 36px -14px color-mix(in srgb,var(--primary) 75%,#000)}
+.loyal::before{content:var(--mark,"");position:absolute;right:-8px;bottom:-42px;font-size:158px;
+  font-weight:800;line-height:1;color:rgba(255,255,255,.08);letter-spacing:-5px;pointer-events:none;z-index:0}
+.loyal::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:1;
+  background:linear-gradient(115deg,transparent 34%,rgba(255,255,255,.24) 49%,transparent 63%);
+  transform:translateX(-130%);animation:sheen 5.5s ease-in-out 1.4s infinite}
+.loyal .club,.loyal .pts,.loyal .tier,.loyal .bar,.loyal .next,.loyal .code{position:relative;z-index:2}
+.loyal .chip{z-index:2}
+@keyframes sheen{0%{transform:translateX(-130%)}24%,100%{transform:translateX(130%)}}
+
+/* ---------- hero watermark ---------- */
+.hero{position:relative;overflow:hidden}
+.hero::after{content:var(--mark,"");position:absolute;right:-6px;top:-38px;font-size:150px;font-weight:800;
+  line-height:1;color:rgba(255,255,255,.06);pointer-events:none}
+.hero>*{position:relative;z-index:1}
+
+/* ---------- progress fills animate on mount (width set by boot.js) ---------- */
+.bar>i,.track>i{transition:width .9s cubic-bezier(.22,.61,.36,1)}
+
+/* ---------- CTA & tap micro-interactions ---------- */
+.btn{position:relative;overflow:hidden;transition:transform .12s ease,box-shadow .24s ease}
+.btn:active{transform:scale(.97)}
+.btn::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(115deg,transparent 36%,rgba(255,255,255,.38) 50%,transparent 64%);transform:translateX(-140%)}
+[data-persona="luxe"] .btn::after{animation:sheen 4.6s ease-in-out 2.2s infinite}
+
+.qa,.tab,.chip2,.reserve,.pcard,.prod,.issue{transition:transform .12s ease,box-shadow .22s ease}
+.qa:active,.reserve:active,.chip2:active,.prod:active,.pcard:active{transform:scale(.96)}
+.tab:active{transform:scale(.9)}
+.qa:active .b{transform:scale(.92)}
+
+/* ---------- active timeline dot pulse ---------- */
+@keyframes pulse{0%,100%{box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 22%,transparent)}
+  50%{box-shadow:0 0 0 8px color-mix(in srgb,var(--accent) 8%,transparent)}}
+.tl li.act::before{animation:pulse 2s ease-in-out infinite}
+
+/* ---------- product image shimmer skeleton ---------- */
+.pcard .img,.prod .img{position:relative;overflow:hidden}
+.pcard .img::after,.prod .img::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.45) 50%,transparent 70%);
+  transform:translateX(-100%);animation:shimmer 2.8s ease-in-out infinite}
+@keyframes shimmer{0%{transform:translateX(-100%)}60%,100%{transform:translateX(100%)}}
+
+/* ---------- tab icon pop on active ---------- */
+.tabs .tab.on svg{animation:pop .38s ease}
+@keyframes pop{0%{transform:scale(.8)}60%{transform:scale(1.16)}100%{transform:scale(1)}}
+
+/* ================= PERSONA TREATMENTS ================= */
+/* luxe — metallic, letter-spaced, hairline, slow & elegant */
+[data-persona="luxe"] .brandmark{letter-spacing:2px}
+[data-persona="luxe"] .hero h1{letter-spacing:.3px}
+[data-persona="luxe"] .loyal .club{letter-spacing:2.6px}
+[data-persona="luxe"] .card,[data-persona="luxe"] .pcard{border-color:color-mix(in srgb,var(--primary) 16%,var(--line))}
+[data-persona="luxe"] .loyal::after{animation-duration:6.5s}
+
+/* playful — springy bounce, rounder shapes */
+[data-persona="playful"] .wrap>*{animation:bounceIn .62s cubic-bezier(.34,1.56,.64,1) both;
+  animation-delay:calc(var(--i,0)*52ms)}
+@keyframes bounceIn{0%{opacity:0;transform:translateY(22px) scale(.96)}
+  60%{transform:translateY(-5px) scale(1.012)}100%{opacity:1;transform:none}}
+[data-persona="playful"] .qa,[data-persona="playful"] .card,
+[data-persona="playful"] .pcard,[data-persona="playful"] .loyal{border-radius:22px}
+[data-persona="playful"] .btn{border-radius:18px}
+
+/* street — snappy, bold, high-contrast, uppercase */
+[data-persona="street"] .wrap>*{animation-duration:.36s;animation-timing-function:cubic-bezier(.16,1,.3,1)}
+[data-persona="street"] .brandmark,[data-persona="street"] .hero h1{text-transform:uppercase;letter-spacing:.6px}
+[data-persona="street"] .badge,[data-persona="street"] .chipst{text-transform:uppercase;letter-spacing:.5px}
+
+/* warm — soft, cozy, gentle motion */
+[data-persona="warm"] .wrap>*{animation-timing-function:cubic-bezier(.4,0,.2,1);animation-duration:.6s}
+[data-persona="warm"] .card,[data-persona="warm"] .pcard,[data-persona="warm"] .loyal{border-radius:20px}
+[data-persona="warm"] .loyal::after{animation-duration:7.5s}
+
+/* ---------- respect reduced-motion ---------- */
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .bar>i,.track>i{transition:none!important}
+}
