@@ -1,0 +1,71 @@
+/* Krok 4 — additional components (loaded after styles.css) */
+.banner{background:color-mix(in srgb,var(--accent) 12%,#fff);border:1px solid color-mix(in srgb,var(--accent) 30%,#fff);
+  border-radius:14px;padding:11px 13px;font-size:12px;color:var(--ink);display:flex;gap:8px;align-items:center}
+.banner b{color:var(--accent)}
+.search{display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px;color:var(--muted);font-size:13px}
+.search svg{width:17px;height:17px;stroke:var(--muted);fill:none;stroke-width:1.8}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:2px 0 2px}
+.chips::-webkit-scrollbar{display:none}
+.chip2{white-space:nowrap;padding:7px 13px;border-radius:20px;font-size:12px;font-weight:600;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.chip2.on{background:var(--primary);color:var(--on-primary);border-color:var(--primary)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pcard{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.pcard .img{height:120px;background:linear-gradient(135deg,color-mix(in srgb,var(--primary) 16%,#fff),color-mix(in srgb,var(--accent) 20%,#fff))}
+.pcard .in{padding:10px}
+.pcard .nm{font-size:12.5px;font-weight:600;margin:0 0 2px}
+.pcard .pr{font-size:13px;font-weight:800;margin:0 0 6px}
+.stock{font-size:11px;font-weight:600;display:inline-flex;align-items:center;gap:5px;margin-bottom:8px}
+.dot{width:7px;height:7px;border-radius:50%;display:inline-block}
+.ok{color:#127a3e}.ok .dot{background:#1aa055}
+.low{color:#b26a00}.low .dot{background:#e08a00}
+.reserve{width:100%;border:1px solid var(--primary);background:transparent;color:var(--primary);font-weight:700;font-size:11.5px;border-radius:10px;padding:8px;cursor:pointer;font-family:inherit}
+/* benefits */
+.benefit{display:flex;gap:11px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--line)}
+.benefit:last-child{border-bottom:0}
+.benefit .ck{width:24px;height:24px;border-radius:50%;flex:none;display:grid;place-items:center;background:color-mix(in srgb,var(--accent) 16%,#fff)}
+.benefit .ck svg{width:14px;height:14px;stroke:var(--accent);fill:none;stroke-width:2.4}
+.benefit b{font-size:13.5px}
+.benefit small{display:block;color:var(--muted);font-size:11.5px;margin-top:1px}
+.qr{height:120px;margin-top:14px;border-radius:12px;background:#fff;padding:10px}
+.qr>div{height:100%;background:
+  repeating-linear-gradient(90deg,#111 0 4px,transparent 4px 8px),
+  repeating-linear-gradient(0deg,#111 0 4px,transparent 4px 8px);background-size:8px 8px;opacity:.85;border-radius:4px}
+/* orders */
+.order{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;margin-bottom:12px}
+.order .top{display:flex;justify-content:space-between;align-items:center}
+.order .id{font-size:11px;color:var(--muted);font-weight:700}
+.chipst{font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;background:color-mix(in srgb,var(--primary) 12%,#fff);color:var(--primary)}
+.steps{display:flex;margin:14px 0 4px}
+.steps .s{flex:1;text-align:center;position:relative;font-size:9.5px;color:var(--muted);font-weight:600}
+.steps .s::before{content:"";display:block;width:14px;height:14px;border-radius:50%;background:var(--neutral);margin:0 auto 5px;border:2px solid var(--card)}
+.steps .s.d{color:var(--primary)}.steps .s.d::before{background:var(--primary)}
+.steps .s::after{content:"";position:absolute;top:6px;left:-50%;width:100%;height:2px;background:var(--neutral);z-index:-1}
+.steps .s:first-child::after{display:none}
+.steps .s.d::after{background:var(--primary)}
+.toggle{display:flex;align-items:center;justify-content:space-between;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:11px 13px;font-size:12.5px;font-weight:600}
+.sw{width:40px;height:24px;border-radius:20px;background:var(--primary);position:relative}
+.sw::after{content:"";position:absolute;width:18px;height:18px;border-radius:50%;background:#fff;top:3px;right:3px}
+.olink{display:flex;gap:16px;margin-top:10px}
+.olink a{font-size:12px;font-weight:700;color:var(--accent);text-decoration:none}
+/* profile */
+.phead{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px}
+.phead .av{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;display:grid;place-items:center;font-weight:800;font-size:18px}
+.phead b{font-size:15px}.phead small{color:var(--muted);font-size:12px}
+.seg{font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px;margin-left:8px}
+.seg.on{background:color-mix(in srgb,var(--primary) 14%,#fff);color:var(--primary)}
+.seg.of{background:#eee;color:#666}
+.prow{display:flex;justify-content:space-between;align-items:center;padding:11px 2px;border-bottom:1px solid var(--line);font-size:13px}
+.prow small{color:var(--muted);font-size:11.5px}
+.prow a{color:var(--accent);font-size:12px;font-weight:700;text-decoration:none}
+.gift{background:linear-gradient(135deg,var(--dark),var(--accent));color:#fff;border-radius:16px;padding:16px}
+.gift .lb{font-size:11px;opacity:.85;letter-spacing:1px;text-transform:uppercase}
+.gift .val{font-size:26px;font-weight:800;margin-top:4px}
+/* chat */
+.chat{display:flex;flex-direction:column;gap:10px;padding:4px 2px}
+.bub{max-width:78%;padding:10px 13px;border-radius:16px;font-size:13px;line-height:1.4}
+.bub.bot{background:var(--card);border:1px solid var(--line);align-self:flex-start;border-bottom-left-radius:5px}
+.bub.me{background:var(--primary);color:var(--on-primary);align-self:flex-end;border-bottom-right-radius:5px}
+.qr2{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+.qr2 span{font-size:11.5px;font-weight:600;border:1px solid var(--primary);color:var(--primary);border-radius:20px;padding:6px 11px;cursor:pointer}
+.inbar{display:flex;gap:8px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:8px 8px 8px 14px;margin-top:12px;color:var(--muted);font-size:13px}
+.inbar .send{margin-left:auto;width:34px;height:34px;border-radius:50%;background:var(--accent);color:var(--cta-text);display:grid;place-items:center;font-weight:800}
