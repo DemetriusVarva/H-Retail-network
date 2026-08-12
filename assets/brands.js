@@ -34,7 +34,7 @@ window.BRANDS = {
     cta: "Zapisz się", tier: "Club", points: 1220, nextTier: "Club+", toNext: 780,
     feature: { type: "reklamacja", code: "RMA-3310", title: "Reklamacja — golf, stójka",
       status: "Przyjęta", sla: "Termin ustawowy: 11 dni", pct: 40,
-      desc: "Zgłoszenie z metryą produktu — bez tłumaczeń przez telefon." }
+      desc: "Zgłoszenie z metryką produktu — bez tłumaczeń przez telefon." }
   },
   giacomo: {
     name: "Giacomo Conti", domain: "giacomo.pl", loyalty: "Giacomo Club",
