@@ -19,6 +19,10 @@
     kubota:'playful',homeyou:'warm',wittchen:'luxe',homla:'warm',_generic:'clean'};
   var pkey=window.BRANDS[id]?id:'_generic';
   document.documentElement.setAttribute('data-persona',PERSONA[pkey]||'clean');
+  var TEXTURE={ochnik:'weave',duka:'matte',lancerto:'weave',giacomo:'weave',solar:'weave',
+    diverse:'weave',venezia:'leather',kazar:'leather',wojas:'leather',monnari:'weave',rylko:'leather',
+    kubota:'weave',homeyou:'matte',wittchen:'leather',homla:'matte',_generic:'weave'};
+  document.documentElement.setAttribute('data-texture',TEXTURE[pkey]||'weave');
   document.title=B.name+" — aplikacja";
 
   var I={
