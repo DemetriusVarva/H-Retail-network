@@ -21,8 +21,16 @@
     var pts=app.querySelector('.loyal .pts');
     if(pts&&C.B&&typeof C.B.points==='number')countUp(pts,C.B.points);
   }
+  var ORDER={home:0,shop:1,club:2,orders:3,profile:4,rma:6,ret:6,help:6};
+  var prev='home';
   function render(){
-    app.innerHTML=(S[C.current]||S.home)();
+    var cur=C.current;
+    var oc=ORDER[cur]==null?0:ORDER[cur], op=ORDER[prev]==null?0:ORDER[prev];
+    var dir=cur===prev?'':(oc<op?'nav-back':'nav-fwd');
+    app.innerHTML=(S[cur]||S.home)();
+    var body=app.querySelector('.body');
+    if(body&&dir)body.classList.add(dir);
+    prev=cur;
     motion();
     app.querySelectorAll('[data-nav]').forEach(function(el){
       el.addEventListener('click',function(){
