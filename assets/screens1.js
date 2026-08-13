@@ -4,13 +4,18 @@
 
   S.home=function(){
     var f=B.feature;
+    var id=(new URLSearchParams(location.search).get('id')||'').toLowerCase().trim();
+    var sig=(window.SIG&&(window.SIG[id]||window.SIG._generic))||{eyebrow:'',chips:[]};
     var qa=[['rma',I.rma,'Reklamacja'],['ret',I.ret,'Zwrot'],['orders',I.ord,'Zamówienia'],['help',I.help,'Wsparcie']];
     var prods=['Nowość','Bestseller','Z Klubu -20%','Polecane'];
     return sh(
       '<div class="appbar"><span class="brandmark">'+B.name+'</span>'+
-        '<div style="display:flex;gap:8px"><div class="ic">'+I.bell+'</div><div class="ic">'+I.user+'</div></div></div>'+
+        '<div style="display:flex;gap:8px"><div class="ic live">'+I.bell+'</div><div class="ic">'+I.user+'</div></div></div>'+
       '<div class="body">'+
-        '<div class="hero"><h1>'+B.hero+'</h1><p>'+B.message+'</p>'+
+        '<div class="hero">'+
+          (sig.eyebrow?'<div class="eyebrow"><span class="d"></span>'+sig.eyebrow+'</div>':'')+
+          '<h1>'+B.hero+'</h1><p>'+B.message+'</p>'+
+          (sig.chips&&sig.chips.length?'<div class="sigrow">'+sig.chips.map(function(c){return '<span class="sig"><i></i>'+c+'</span>';}).join('')+'</div>':'')+
           '<button class="btn" data-nav="club">'+B.cta+'</button></div>'+
         '<div class="wrap">'+
           '<div class="loyal"><div class="chip"></div><div class="club">'+B.loyalty+'</div>'+
