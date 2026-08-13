@@ -1,0 +1,63 @@
+/* Krok 9 — #3 directional screen slide + #4 brand material textures.
+   Loaded after styles5.css. Additive only. */
+
+/* ================= #3 directional slide between screens ================= */
+@keyframes slideInFwd{from{opacity:.3;transform:translateX(28px)}to{opacity:1;transform:none}}
+@keyframes slideInBack{from{opacity:.3;transform:translateX(-28px)}to{opacity:1;transform:none}}
+.body.nav-fwd{animation:slideInFwd .34s cubic-bezier(.22,.61,.36,1)}
+.body.nav-back{animation:slideInBack .34s cubic-bezier(.22,.61,.36,1)}
+@media (prefers-reduced-motion:reduce){
+  .body.nav-fwd,.body.nav-back{animation:none}
+}
+
+/* ================= #4 brand material textures (pure CSS, subtle) ================= */
+/* Applied to the hero + loyalty card only — the brand-statement surfaces.
+   Base gradients are re-declared to match styles.css so the texture layers
+   sit on top of the original brand gradient without changing its look. */
+
+/* ---- leather grain: Kazar, Wojas, Ryłko, Wittchen, Venezia ---- */
+[data-texture="leather"] .hero{
+  background-image:
+    radial-gradient(circle at 25% 30%, rgba(255,255,255,.055) 0 1px, transparent 2px),
+    radial-gradient(circle at 65% 62%, rgba(0,0,0,.06) 0 1px, transparent 2px),
+    radial-gradient(circle at 85% 22%, rgba(255,255,255,.04) 0 1px, transparent 1.8px),
+    linear-gradient(160deg,var(--primary),var(--dark));
+  background-size:15px 15px,19px 19px,23px 23px,cover;
+  background-repeat:repeat,repeat,repeat,no-repeat}
+[data-texture="leather"] .loyal{
+  background-image:
+    radial-gradient(circle at 25% 30%, rgba(255,255,255,.06) 0 1px, transparent 2px),
+    radial-gradient(circle at 65% 62%, rgba(0,0,0,.07) 0 1px, transparent 2px),
+    linear-gradient(135deg,var(--primary),var(--accent));
+  background-size:15px 15px,19px 19px,cover;
+  background-repeat:repeat,repeat,no-repeat}
+
+/* ---- woven fabric: Ochnik, Lancerto, Giacomo, Solar, Diverse, Monnari, Kubota ---- */
+[data-texture="weave"] .hero{
+  background-image:
+    repeating-linear-gradient(0deg, rgba(255,255,255,.045) 0 1px, transparent 1px 4px),
+    repeating-linear-gradient(90deg, rgba(0,0,0,.045) 0 1px, transparent 1px 4px),
+    linear-gradient(160deg,var(--primary),var(--dark));
+  background-size:4px 4px,4px 4px,cover;
+  background-repeat:repeat,repeat,no-repeat}
+[data-texture="weave"] .loyal{
+  background-image:
+    repeating-linear-gradient(0deg, rgba(255,255,255,.05) 0 1px, transparent 1px 4px),
+    repeating-linear-gradient(90deg, rgba(0,0,0,.05) 0 1px, transparent 1px 4px),
+    linear-gradient(135deg,var(--primary),var(--accent));
+  background-size:4px 4px,4px 4px,cover;
+  background-repeat:repeat,repeat,no-repeat}
+
+/* ---- matte ceramic dots: DUKA, home&you, Homla ---- */
+[data-texture="matte"] .hero{
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,.05) 0 1px, transparent 1.6px),
+    linear-gradient(160deg,var(--primary),var(--dark));
+  background-size:12px 12px,cover;
+  background-repeat:repeat,no-repeat}
+[data-texture="matte"] .loyal{
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,.055) 0 1px, transparent 1.6px),
+    linear-gradient(135deg,var(--primary),var(--accent));
+  background-size:12px 12px,cover;
+  background-repeat:repeat,no-repeat}
